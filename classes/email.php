@@ -21,11 +21,11 @@ class Email{
 
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->Host =  $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '82dd4947d438f4';
-        $mail->Password = 'a723bb984f406b';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
         $mail->setFrom('cuentas@uptask.com');
         $mail->addAddress('cuentas@uptask.com','uptask.com');
@@ -36,7 +36,7 @@ class Email{
 
         $contenido = '<html>';
         $contenido .= '<p><strong>Hola ' . $this->nombre . '</strong>. Has Creado tu cuenta en UpTask, solo debes confirmarla en el siguiente enlace</p>';
-        $contenido .= '<p>Presiona aqui: <a href="http://localhost:3000/confirmar?token='. $this->token.'">Confirmar Cuenta</a></p>';
+        $contenido .= '<p>Presiona aqui: <a href="' . $_ENV['APP_URL'] . '/confirmar?token='. $this->token.'">Confirmar Cuenta</a></p>';
         $contenido .= '<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>';
         $contenido .= '<html>';
 
@@ -53,11 +53,11 @@ class Email{
 
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->Host =  $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '82dd4947d438f4';
-        $mail->Password = 'a723bb984f406b';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
         $mail->setFrom('cuentas@uptask.com');
         $mail->addAddress('cuentas@uptask.com','uptask.com');
@@ -67,7 +67,7 @@ class Email{
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= '<p><strong>Hola ' . $this->nombre . '</strong>. Parece que has olvidado tu password. Sigue el siguiente enlace para recuperarlo. <a href="http://localhost:3000/reestablecer?token='. $this->token.'">Reestablecer Password</a></p>';
+        $contenido .= '<p><strong>Hola ' . $this->nombre . '</strong>. Parece que has olvidado tu password. Sigue el siguiente enlace para recuperarlo. <a href="' . $_ENV['APP_URL'] . '/reestablecer?token='. $this->token.'">Reestablecer Password</a></p>';
         $contenido .= '<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>';
         $contenido .= '<html>';
 

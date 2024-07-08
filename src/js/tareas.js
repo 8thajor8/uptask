@@ -151,7 +151,7 @@
             <form class="formulario nueva-tarea">
                 <legend>${editar ? 'Editar Tarea' : 'Añade una nueva tarea'}</legend>
                 <div class="campo">
-                    <label>Tarea</label>
+                    <label for='tarea'>Tarea</label>
                     <input
                         type="text"
                         name="tarea"
@@ -238,7 +238,7 @@
         
 
         try {
-            const url= 'http://localhost:3000/api/tarea';
+            const url= '/api/tarea';
             const respuesta = await fetch(url,{
                 method:'POST',
                 body: datos
@@ -292,7 +292,7 @@
 
         try {
             
-            const url = 'http://localhost:3000/api/tarea/actualizar';
+            const url = '/api/tarea/actualizar';
             const respuesta = await fetch(url, {
                 method: 'POST',
                 body: datos
@@ -355,7 +355,7 @@
         datos.append('url', obtenerProyecto());
         try {
 
-            const url = 'http://localhost:3000/api/tarea/eliminar';
+            const url = '/api/tarea/eliminar';
             const respuesta = await fetch(url, {
                 method: 'POST',
                 body: datos
